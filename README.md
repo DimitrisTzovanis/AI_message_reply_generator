@@ -23,7 +23,7 @@ It collects every 𝑆out(𝑙)𝑡 for each layer 𝑙 separately, and pass the
 - generate_response: uses the trained model to generate a quick response
 
 
-### Paraneters
+### Parameters
 
 - temperature: low = less randomness
 - seq_length: number of characters each training example should have (40 is a typical messange exchange)
