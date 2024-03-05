@@ -10,6 +10,11 @@ I decrypted the messages and for every message I sent I gathered all the replies
 
 Afterwards I fed the messages to a 2-layered-gru RNN that generates a number of characters for each input
 
+#### It features 2 gru layers for better text generation
+
+It collects every 𝑆out(𝑙)𝑡 for each layer 𝑙 separately, and pass them to their respective layers as 𝑆in(𝑙)𝑡′ on the next iteration and in the same states variable, after the discrete co-ordinate value 𝑡′←𝑡 is advanced by the framework, to ensure that the invariant (𝑙) is conserved.
+
+
 ### Files
 
 - Decoder: decodes encoded facebook messenger data
