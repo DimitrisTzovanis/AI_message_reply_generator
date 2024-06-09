@@ -7,7 +7,7 @@ def extract_content(messagesPrev, sender_name1, sender_name2):
     contents2 = []
     contentsCombined = []
     for i in range(len(messages) - 1):
-         if messages[i]['sender_name'] == "Δημητρης Τζοβανης" and messages[i + 1]['sender_name'] == "Elpida Stasinou":
+         if messages[i]['sender_name'] == "Person1" and messages[i + 1]['sender_name'] == "Person2":
             if 'content' in messages[i] and 'content' in messages[i+1] and 'http' not in messages[i]['content'] and 'http' not in messages[i+1]['content'] and 'profit bird' not in messages[i]['content'] and 'profit bird' not in messages[i+1]['content']:
                 contents1.append(messages[i]['content'])
                 reply = messages[i + 1]['content']
