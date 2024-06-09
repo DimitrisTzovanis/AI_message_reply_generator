@@ -2,8 +2,22 @@ import tensorflow as tf
 import numpy as np
 import os
 import time
+import pandas as pd
 
-text = open('combined.txt', 'rb').read().decode(encoding='utf-8')
+
+# Assuming the path to your CSV file is correctly specified
+data_path = 'conversations.csv'
+
+# Read the CSV file into a pandas DataFrame
+data = pd.read_csv(data_path)
+
+# Ensure the 'user' and 'response' columns are treated as strings
+data['user'] = data['user'].astype(str)
+data['response'] = data['response'].astype(str)
+
+# Concatenate 'user' and 'response' sentences into a single list of strings
+text = ' '.join(data['user'].tolist() + data['response'].tolist())
+
 vocab = sorted(set(text))
 ids_from_chars = tf.keras.layers.StringLookup(
     vocabulary=list(vocab), mask_token=None)
@@ -107,10 +121,12 @@ class OneStep(tf.keras.Model):
 one_step_reloaded = tf.saved_model.load('one_step')
 
 states = None
-next_char = tf.constant(['Τι κανεις'])
+next_char = tf.constant(['Που εισαι;'])
 result = [next_char]
 
-for n in range(30):
+for n in range(25):
+  if n>20 and next_char==" ":
+    break 
   next_char, states = one_step_reloaded.generate_one_step(next_char, states=states)
   result.append(next_char)
 
