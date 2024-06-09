@@ -49,6 +49,7 @@ def extract_content(messagesPrev, sender_name1, sender_name2):
     contents1 = []
     contents2 = []
     for i in range(len(messages) - 1):
+<<<<<<< HEAD
          if messages[i]['sender_name'] == "Person1" and messages[i + 1]['sender_name'] == "Elpida Stasinou":
             if 'content' in messages[i] and 'content' in messages[i+1] and len(messages[i])<40 and len(messages[i+1]['content']) < 25 and 'http' not in messages[i]['content'] and 'http' not in messages[i+1]['content'] and 'profit bird' not in messages[i]['content'] and 'profit bird' not in messages[i+1]['content']:
                 flag = False
@@ -56,6 +57,11 @@ def extract_content(messagesPrev, sender_name1, sender_name2):
                 rr = ''.join(c for c in unicodedata.normalize('NFD', rr) if unicodedata.category(c) != 'Mn')
                 rr = re.sub(r'[,"\'\']', '', rr)
                 rr = re.sub(r'[^\w\s,;.?!:Ά-ώ]+', '', rr)
+=======
+         if messages[i]['sender_name'] == "Person1" and messages[i + 1]['sender_name'] == "Person2":
+            if 'content' in messages[i] and 'content' in messages[i+1] and 'http' not in messages[i]['content'] and 'http' not in messages[i+1]['content'] and 'profit bird' not in messages[i]['content'] and 'profit bird' not in messages[i+1]['content']:
+                contents1.append(messages[i]['content'])
+>>>>>>> 8137a53c49a68dc643b6db210b8119a97bfe7eae
                 reply = messages[i + 1]['content']
                 k=i+2
                 n=0
