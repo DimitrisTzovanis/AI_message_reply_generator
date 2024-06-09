@@ -10,6 +10,8 @@ I decrypted the messages and for every message I sent I gathered all the replies
 
 Afterwards I fed the messages to a 2-layered-gru RNN that generates a number of characters for each input
 
+To run this edit the Create_Dataset script and type the name of the folder with the json conversartion files
+
 #### It features 2 gru layers for better text generation
 
 It collects every 𝑆out(𝑙)𝑡 for each layer 𝑙 separately, and pass them to their respective layers as 𝑆in(𝑙)𝑡′ on the next iteration and in the same states variable, after the discrete co-ordinate value 𝑡′←𝑡 is advanced by the framework, to ensure that the invariant (𝑙) is conserved.
@@ -17,8 +19,7 @@ It collects every 𝑆out(𝑙)𝑡 for each layer 𝑙 separately, and pass the
 
 ### Files
 
-- Decoder: decodes encoded facebook messenger data
-- Create_Dataset: finds each message from a specific person, and lists all the replies from the other person
+- Create_Dataset: finds all json files from a specific dierectory, decodes encoded facebook messenger data finds each message from a specific person, and lists all the replies from the other person
 - rnn: creates the rnn model
 - generate_response: uses the trained model to generate a quick response
 
